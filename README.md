@@ -2,10 +2,6 @@
 
 ## start machinelearning
 
-## add KNN Algorithm for machinelearning project.
-
-## add model_selection for machinelearning project
-
 # Note
 
 ## Data Normalization
