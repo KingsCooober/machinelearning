@@ -1,4 +1,5 @@
 import numpy as np
+from metrics import r2_score
 
 class SimpleLinearRegression1:
 
@@ -22,7 +23,7 @@ class SimpleLinearRegression1:
             num += (x - x_mean) * (y - y_mean)
             d += (x - x_mean) ** 2
 
-        self.a_ = num / d;
+        self.a_ = num / d
         self.b_ = y_mean - self.a_ * x_mean
 
         return self
@@ -39,6 +40,12 @@ class SimpleLinearRegression1:
     def _predict(self, x_single):
         """给定单个待预测数据 x_single, 返回 x_single 的预测结果值"""
         return self.a_ * x_single + self.b_
+
+    def score(self, x_test, y_test):
+        '''根据训练数据集 x_test, y_test 确定当前模型的准确度'''
+
+        y_predixt = self.predict(x_test)
+        return r2_score(y_test, y_predixt)
 
     def __repr__(self):
         return "SimpleLinearRegression1()"
@@ -64,7 +71,7 @@ class SimpleLinearRegression2:
         num = (x_train - x_mean).dot(y_train - y_mean)
         d = (x_train - x_mean).dot(x_train - x_mean)
 
-        self.a_ = num / d;
+        self.a_ = num / d
         self.b_ = y_mean - self.a_ * x_mean
 
         return self
@@ -81,6 +88,12 @@ class SimpleLinearRegression2:
     def _predict(self, x_single):
         """给定单个待预测数据 x_single, 返回 x_single 的预测结果值"""
         return self.a_ * x_single + self.b_
+
+    def score(self, x_test, y_test):
+        '''根据训练数据集 x_test, y_test 确定当前模型的准确度'''
+
+        y_predixt = self.predict(x_test)
+        return r2_score(y_test, y_predixt)
 
     def __repr__(self):
         return "SimpleLinearRegression2()"
