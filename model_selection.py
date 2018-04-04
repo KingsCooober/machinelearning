@@ -1,6 +1,6 @@
 import numpy as np
 
-def train_test_split(X, y, test_ratio=0.1, seed=None):
+def train_test_split(X, y, test_ratio=0.2, seed=None):
     """将数据 X 和 y 按照 test_ratio 分割成 X_train, X_test, y_train, y_test"""
 
     assert X.shape[0] == y.shape[0], \
