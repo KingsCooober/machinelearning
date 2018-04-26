@@ -1,5 +1,5 @@
 import numpy as np
-from .metrics import accuracy_score
+from metrics import accuracy_score
 
 class LogisticRegression:
 
